@@ -186,7 +186,7 @@ public class SMSwipeableTabViewController: UIViewController, UIPageViewControlle
     
     private func setupSegmentBarButtons() {
         if let buttonList = titleBarDataSource {
-            for var i = 0; i < buttonList.count; i++ {
+            for i in 0 ..< buttonList.count {
                 
                 let previousButtonX = i > 0 ? buttonsFrameArray[i-1].origin.x : 0.0
                 let previousButtonW = i > 0 ? buttonsFrameArray[i-1].size.width : 0.0
@@ -195,7 +195,7 @@ public class SMSwipeableTabViewController: UIViewController, UIPageViewControlle
                 buttonsFrameArray.append(segmentButton.frame)
                 segmentButton.setTitle(buttonList[i], forState: .Normal)
                 segmentButton.tag = i
-                segmentButton.addTarget(self, action: "didSegmentButtonTap:", forControlEvents: .TouchUpInside)
+                segmentButton.addTarget(self, action: #selector(SMSwipeableTabViewController.didSegmentButtonTap(_:)), forControlEvents: .TouchUpInside)
                 
                 if let attributes = buttonAttributes {
                     if let bgColor = attributes[SMBackgroundColorAttribute] as? UIColor {
@@ -214,7 +214,7 @@ public class SMSwipeableTabViewController: UIViewController, UIPageViewControlle
                         segmentButton.setImage(UIImage(named: highlightedImages[i]), forState: .Selected)
                     }
                     
-                    if let hideTitle = attributes[SMButtonHideTitleAttribute] as? Bool where hideTitle == true{
+                    if let hideTitle = attributes[SMButtonHideTitleAttribute] as? Bool where hideTitle == true {
                         segmentButton.titleLabel?.hidden = true
                         segmentButton.setTitle("", forState: .Normal)
                     }
@@ -307,7 +307,7 @@ public class SMSwipeableTabViewController: UIViewController, UIPageViewControlle
             return nil
         }
         
-        index--
+        index -= 1
         return viewControllerAtIndex(index)
     }
     
@@ -317,7 +317,7 @@ public class SMSwipeableTabViewController: UIViewController, UIPageViewControlle
             return nil
         }
         
-        index++
+        index += 1
         if index == titleBarDataSource?.count {
             return nil
         }
