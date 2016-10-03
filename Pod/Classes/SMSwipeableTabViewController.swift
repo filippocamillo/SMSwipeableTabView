@@ -358,7 +358,7 @@ public class SMSwipeableTabViewController: UIViewController, UIPageViewControlle
 
 extension SMSwipeableTabViewController {
     
-    func didSegmentButtonTapAtIndex(index: Int, animated: Bool? = false) {
+    public func didSegmentButtonTapAtIndex(index: Int, animated: Bool? = false) {
         let tempIndex = currentPageIndex
         let scrollDirection: UIPageViewControllerNavigationDirection = index > tempIndex ? .Forward : .Reverse
         pageViewController?.setViewControllers([self.viewControllerAtIndex(index)!], direction: scrollDirection, animated: animated!, completion: { (complete) -> Void in
