@@ -8,15 +8,15 @@
 
 Pod::Spec.new do |s|
 s.name             = "SMSwipeableTabView"
-s.version          = "0.1.1"
+s.version          = "0.1.2"
 s.summary          = "Swipeable Views with Tabs (Like Android SwipeView With Tabs Layout)"
 s.description      = <<-DESC
 It is a custom swipeable viewcontroller library same as Android Swipe view with Tabs Layout(In Lollipop). This control contains UIPageviewController and Scrollable SegmentBar/TabBar. This type of control can be seen in Spotify app, Twitter app and in many more. User can add as many swipeable ViewController and SegmentBar Buttons. The whole control is customizable. User can easily customize the size of Button (Fixed or variable), Size, Color, Font, Height of Tabs/Segments. For more details, You can go through the example of this project.
 DESC
-s.homepage         = "https://github.com/smahajan28/SMSwipeableTabView"
+s.homepage         = "https://github.com/filippocamillo/SMSwipeableTabView"
 s.license          = 'MIT'
-s.author           = { "Sahil Mahajan" => "sahilrameshmahajan@gmail.com" }
-s.source           = { :git => "https://github.com/smahajan28/SMSwipeableTabView.git", :tag => s.version.to_s }
+s.author           = { "Filippo Camillo" => "hello@filippocamillo.com" }
+s.source           = { :git => "https://github.com/filippocamillo/SMSwipeableTabView.git", :tag => s.version.to_s }
 s.platform         = :ios, '7.0'
 s.requires_arc     = true
 

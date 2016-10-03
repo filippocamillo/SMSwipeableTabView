@@ -355,3 +355,22 @@ public class SMSwipeableTabViewController: UIViewController, UIPageViewControlle
         selectionBar.frame = CGRectMake(xCoor-xFromCenter/kSelectionBarSwipeConstant, selectionBar.frame.origin.y, buttonsFrameArray[currentPageIndex].size.width, selectionBar.frame.size.height)
     }
 }
+
+extension SMSwipeableTabViewController {
+    
+    func didSegmentButtonTapAtIndex(index: Int, animated: Bool? = false) {
+        let tempIndex = currentPageIndex
+        let scrollDirection: UIPageViewControllerNavigationDirection = index > tempIndex ? .Forward : .Reverse
+        pageViewController?.setViewControllers([self.viewControllerAtIndex(index)!], direction: scrollDirection, animated: animated!, completion: { (complete) -> Void in
+            if complete {
+                //same page
+                if self.currentPageIndex == index {
+                    return
+                }
+                self.currentPageIndex = index
+                self.segmentBarView.scrollRectToVisible(CGRectMake(self.buttonsFrameArray[self.currentPageIndex].origin.x, 0.0,  self.buttonsFrameArray[self.currentPageIndex].size.width, self.segementBarHeight), animated: animated!)
+            }
+        })
+    }
+    
+}
